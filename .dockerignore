@@ -1,0 +1,11 @@
+web/dist
+web/node_modules
+api/static/static
+api/static/index.js
+api/node_modules
+
+pids
+*.pid
+*.seed
+*.pid.lock
+*.pdf
