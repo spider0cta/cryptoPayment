@@ -35,10 +35,13 @@
             </ul>
           </div>
           <card-form v-if="isCard == 'card'" />
+          <crypto-pos v-if="isCrypto" :product="product"/>
         </div>
       </div>
     </div>
-    <div class="container is-loading is-big" v-else></div>
+    <div class="container is-loading is-big" v-else>
+      <div class="loader"></div>
+    </div>
   </div>
 </template>
 
@@ -47,9 +50,9 @@ import Navbar from "@/components/navbar";
 import Products from "@/api/products";
 import Product from "@/components/product";
 import CardForm from "@/components/card-form";
-
+import CryptoPos from '@/components/crypto-pos'
 export default {
-  components: { Navbar, Product, CardForm },
+  components: { Navbar, Product, CardForm, CryptoPos },
   data() {
     return {
       product: null,
@@ -59,7 +62,7 @@ export default {
   async mounted() {
     const id = this.$route.params.id;
     this.product = await Products.getWithId(id);
-    console.log(this.products);
+   
   },
   computed :{
     isCard(){
