@@ -1,10 +1,18 @@
 const Order = require("./model");
 const Product = require("../products/model");
 const request = require("request-promise-cache");
-
+const bitcoin = require("bitcoinjs-lib");
+const config = require("../../configuration");
+const bip32 = require("bip32");
+const xpub = config.get("XPUB")
+const root = bitcoin.bip32.fromBase58(xpub ,bitcoin.networks.testnet);
+const isTestNet = config.get("TESTNET") === true;
+const network = isTestNet ? bitcoin.networks.testnet : bitcoin.networks.bitcoin;
 // getting new address
 async function getNewAddress() {
-  return "randomaddress212151";
+    const initialCount = await Order.countDocuments();
+    const node = root.derive(initialCount);
+    return bitcoin.payments.p2pkh({pubkey:node.publicKey, network}).address
 }
 
 // quering btc price in usd using coindesk api
@@ -15,7 +23,7 @@ async function getAmountForPrice(price) {
     cacheKey: url,
     cacheTTL: 15,
     cacheLimit: 24,
-    resolveWithFullResponse: false,
+    resolveWithFullResponse: false
   });
   const response = JSON.parse(result);
   const rate = response["bpi"]["USD"]["rate_float"];
