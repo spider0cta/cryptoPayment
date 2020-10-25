@@ -8,6 +8,10 @@
     "SMTP_USER": "myemail@gmail.com",
     "SMTP_PASS": "myemailpasswordforgmail",
     "XPuB":"xpub6C33aqYw48jPkBDpNm9fw7tvggfDMJCKZ2tmMqNHBqVUwuCJ1zVautuu3ivCF7uMXcdUfN5DDxJjUYubSynuXwWnXPa2bos36Rou5WAQTV2",
-    "TESTNET": true
+    "TESTNET": true,
+    "COIN_RPC_USER":"user",
+    "COIN_RPC_PORT":18332,
+    "COIN_RPC_PASS":"change it according to your configuraation",
+    "COIN_RPC_URL":"127.0.0.1"
   }
 }

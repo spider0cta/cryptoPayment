@@ -1,10 +1,12 @@
 const Router = require('koa-router')
 const products = require('../api/products/routes')
 const orders = require('../api/orders/routes')
+const blockchain  =require('../api/blockchain/routes')
 
 const routes = {
   '/products': products,
-  '/orders': orders
+  '/orders': orders,
+  '/blockchain':blockchain
 }
 
 const router = Router()
