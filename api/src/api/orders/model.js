@@ -6,16 +6,16 @@ const OrderSchema = new mongoose.Schema(
       type: String,
       required: true,
       index: {
-        unique: true
+        unique: true,
       },
     },
     amount: {
       type: Number,
-      required: true
+      required: true,
     },
     price: {
       type: Number,
-      required: true
+      required: true,
     },
     product: {
       type: mongoose.Schema.Types.ObjectId,
@@ -23,7 +23,7 @@ const OrderSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 

@@ -12,6 +12,7 @@
     "COIN_RPC_USER":"user",
     "COIN_RPC_PORT":18332,
     "COIN_RPC_PASS":"change it according to your configuraation",
-    "COIN_RPC_URL":"127.0.0.1"
+    "COIN_RPC_URL":"127.0.0.1",
+    "CONFIRMATIONS_REQUIRED": "3"
   }
 }

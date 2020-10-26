@@ -11,11 +11,25 @@
         <span class="tag is-info is-large">{{ order.amount }}</span>
       </div>
       <div>
-      <qrcode :value="encode" :option="{ size: 300 }" />
+        <qrcode :value="encode" :option="{ size: 300 }" />
       </div>
       <div>
-      <span class="title is-5" v-if="state === 'waiting'">Waitingfor confirmation</span>
-      <div class="loader"></div>
+        <span class="title is-5" v-if="state === 'waiting'"
+          >Waiting for confirmation</span
+        >
+        <div class="loader"></div>
+      </div>
+      <div v-if="state === 'recieved'">
+        <span class="title is-5"
+          >Payment Recieved, you will get your book once we have 3
+          confirmations</span
+        >
+      </div>
+      <div v-if="state === 'error'">
+        <span class="title is-5"
+          >An error occured , please contact support with your order Id
+          {{ order._id }}</span
+        >
       </div>
     </div>
   </div>
